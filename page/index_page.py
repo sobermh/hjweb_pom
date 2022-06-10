@@ -1,6 +1,27 @@
 """
-@author:maohui
-@time:2022/4/21 13:30
+/**
+ * 　　　　　　　 ┏┓    ┏┓+ +
+ * 　　　　　　　┏┛┻━━━━┛┻┓ + +
+ * 　　　　　　　┃        ┃ 　
+ * 　　　　　　　┃     ━  ┃ ++ + + +
+ * 　　　　　 　████━████ ┃+
+ * 　　　　　　　┃        ┃ +
+ * 　　　　　　　┃   ┻    ┃
+ * 　　　　　　　┃        ┃ + +
+ * 　　　　　　　┗━┓   ┏━━┛
+ * 　　　　　　　  ┃   ┃
+ * 　　　　　　　  ┃   ┃ + + + +
+ * 　　　　　　　  ┃   ┃　　　Code is far away from bug with the animal protecting
+ * 　　　　　　　  ┃   ┃+ 　　　　神兽保佑,代码无bug
+ * 　　　　　　　  ┃   ┃
+ * 　　　　　　　  ┃   ┃　　+
+ * 　　　　　　　  ┃   ┗━━━━━━━┓ + +
+ * 　　　　　　　  ┃           ┣┓
+ * 　　　　　　　  ┃           ┏┛
+ * 　　　　　　　  ┗┓┓┏━━━━━┳┓┏┛ + + + +
+ * 　　　　　　　   ┃┫┫     ┃┫┫
+ * 　　　　　　　   ┗┻┛     ┗┻┛+ + + +
+ */
 """
 import time
 from selenium import webdriver
@@ -25,21 +46,23 @@ class IndexPage():
         self.company_news_loc = (By.XPATH, "/html/body/div[6]/div/a/span")  # 公司新闻定位符
         self.driver = driver
         # self.driver=webdriver.Chrome()#调试
-        self.wait = WebDriverWait(self.driver, 90)
+        self.wait = WebDriverWait(self.driver, 20)
 
     #点击搜索
     def tosearch(self):
         try:
-            time.sleep(2)
-            self.wait.until(expected_conditions.presence_of_element_located(self.search_loc))
-            self.driver.find_element(*self.search_loc).click()
+            # time.sleep(2)
+            search_loc=self.wait.until(expected_conditions.presence_of_element_located(self.search_loc))
+            self.driver.execute_script("arguments[0].click();",search_loc)
+            # self.driver.find_element(*self.search_loc).click()
         except Exception as e:
             self.driver.get_screenshot_as_file('./log/点击搜索错误.png')
             raise e
         try:
-            self.wait.until(expected_conditions.presence_of_element_located(self.search_input_loc))
-            time.sleep(2)
+            self.wait.until(expected_conditions.element_to_be_clickable(self.search_input_loc))
+            # time.sleep(2)
             self.driver.find_element(*self.search_input_loc).send_keys("汇健")
+            # self.driver.execute_script("arguments[0].click();", search_input_loc)
             self.driver.find_element(*self.search_input_btn_loc).click()
         except Exception as e:
             self.driver.get_screenshot_as_file('./log/搜索错误.png')
@@ -72,14 +95,15 @@ class IndexPage():
             raise e
 
 
-# # 调试
-# if __name__ == "__main__":
-#     # 打开浏览器
-#     driver = webdriver.Chrome()
-#     # 最大化窗口
-#     driver.maximize_window()
-#     index = IndexPage(driver)
-#     driver.get("http://47.110.240.87:80/")
-#     index.tosearch()
-#     driver.quit()
+# 调试
+if __name__ == "__main__":
+    # 打开浏览器
+    driver = webdriver.Chrome()
+    # 最大化窗口
+    driver.maximize_window()
+    index = IndexPage(driver)
+    driver.get("http://47.110.240.87:80/")
+    index.tosearch()
+    time.sleep(2)
+    driver.quit()
 

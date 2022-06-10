@@ -17,7 +17,7 @@ class AboutPage():
         self.hj_honor_loc=(By.XPATH,"/html/body/div[4]/div/div/div/a[3]")#汇健荣誉
         self.driver = driver
         # self.driver=webdriver.Chrome()#调试
-        self.wait = WebDriverWait(self.driver, 90)
+        self.wait = WebDriverWait(self.driver, 20)
     #页面操作
     ##点击汇健简介
     def click_hj_intro(self):
