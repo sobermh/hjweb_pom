@@ -13,16 +13,17 @@ class HjDevelop(unittest.TestCase):
     def setUp(self) -> None:
         self.driver=webdriver.Chrome()
         self.driver.maximize_window()
+        self.driver.get("http://47.110.240.87:80/")
         self.indexpage=IndexPage(self.driver)
         self.aboutpage=AboutPage(self.driver)
-    def test003_click_hj_develop(self):
-        self.driver.get("http://47.110.240.87:80/")
+    def test010(self):
+        """关于汇健中汇健发展的跳转"""
         self.indexpage.click_menu()
         self.indexpage.click_about()
         self.aboutpage.click_hj_develop()
         time.sleep(1)
-    def test004_click_hj_honor(self):
-        self.driver.get("http://47.110.240.87:80/")
+    def test011(self):
+        """关于汇健中汇健荣誉的跳转"""
         self.indexpage.click_menu()
         self.indexpage.click_about()
         self.aboutpage.click_hj_honor()

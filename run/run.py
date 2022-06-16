@@ -8,7 +8,7 @@ import HTMLTestRunner
 
 suite=unittest.defaultTestLoader.discover('../case/','*.py')
 
-file=open('../log/hjweb_test_result.html',mode='wb')
+file=open('../reporter/hjweb_test_result.html', mode='wb')
 runner=HTMLTestRunner.HTMLTestRunner(file,title="官网自动化测试报告",description="IDC",tester="毛辉")
 
 runner.run(suite)
