@@ -13,48 +13,48 @@ class IndexToPage(unittest.TestCase):
     def setUp(self) -> None:
         self.driver=webdriver.Chrome()
         self.driver.maximize_window()
-        self.driver.get("http://47.110.240.87:80/")
+        self.driver.get("http://well-healthcare.com/")
         self.indexpage=IndexPage(self.driver)
         self.hjintro=AboutPage(self.driver)
     def test002(self):
         """首页跳转至关于汇健"""
         self.indexpage.click_menu()
         self.indexpage.click_about()
-        self.assertEqual(self.driver.current_url,"http://47.110.240.87/about.html")
+        self.assertEqual(self.driver.current_url,"http://well-healthcare.com/about.html")
     def test003(self):
         """首页跳转至技术平台"""
         self.indexpage.click_menu()
         self.indexpage.click_platform()
-        self.assertEqual(self.driver.current_url, "http://47.110.240.87/platform.html")
+        self.assertEqual(self.driver.current_url, "http://well-healthcare.com/platform.html")
     def test004(self):
         """首页跳转至产品中心"""
         self.indexpage.click_menu()
         self.indexpage.click_product()
-        self.assertEqual(self.driver.current_url, "http://47.110.240.87/products_list_48.html")
+        self.assertEqual(self.driver.current_url, "http://well-healthcare.com/products.html")
     def test005(self):
         """首页跳转至医学合作中心"""
         self.indexpage.click_menu()
         self.indexpage.click_cooperate()
-        self.assertEqual(self.driver.current_url, "http://47.110.240.87/cooperate.html")
+        self.assertEqual(self.driver.current_url, "http://well-healthcare.com/cooperate.html")
     def test006(self):
         """首页跳转至医学检验中心"""
         self.indexpage.click_menu()
         self.indexpage.click_test()
-        self.assertEqual(self.driver.current_url, "http://47.110.240.87/test.html")
+        self.assertEqual(self.driver.current_url, "http://well-healthcare.com/test.html")
     def test007(self):
         """首页跳转至呼气传感中心"""
         self.indexpage.click_menu()
         self.indexpage.click_sensing()
-        self.assertEqual(self.driver.current_url, "http://47.110.240.87/sensing.html")
+        self.assertEqual(self.driver.current_url, "http://well-healthcare.com/sensing.html")
     def test008(self):
         """首页跳转至新闻中心"""
         self.indexpage.click_menu()
         self.indexpage.click_news()
-        self.assertEqual(self.driver.current_url, "http://47.110.240.87/news.html")
+        self.assertEqual(self.driver.current_url, "http://well-healthcare.com/news.html")
     def test009(self):
         """首页跳转至新闻中心"""
         self.indexpage.click_menu()
         self.indexpage.click_join()
-        self.assertEqual(self.driver.current_url, "http://47.110.240.87/join.html")
+        self.assertEqual(self.driver.current_url, "http://well-healthcare.com/join.html")
     def tearDown(self) -> None:
         self.driver.quit()

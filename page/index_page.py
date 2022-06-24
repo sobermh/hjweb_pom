@@ -95,9 +95,10 @@ class IndexPage():
     # 点击关于汇健
     def click_about(self):
         try:
-            time.sleep(2)
-            self.wait.until(expected_conditions.presence_of_element_located(self.about_loc))
-            self.driver.find_element(*self.about_loc).click()
+            # time.sleep(2)
+            about_loc=self.wait.until(expected_conditions.presence_of_element_located(self.about_loc))
+            # self.driver.find_element(*self.about_loc).click()
+            self.driver.execute_script("arguments[0].click();", about_loc)
         except Exception as e:
             self.driver.get_screenshot_as_file('./log/打开about错误.png')
             raise e
@@ -176,7 +177,10 @@ if __name__ == "__main__":
     driver.maximize_window()
     index = IndexPage(driver)
     driver.get("http://47.110.240.87:80/")
-    index.click_menu()
-    index.click_sensing()
+    wait=WebDriverWait(driver,15)
+    except_loc = (By.XPATH, '/html/body/div[4]/div[1]/div[1]/div[2]/div/div/div/div[2]')
+    wait.until(
+        expected_conditions.presence_of_element_located((except_loc)))
+    print(driver.find_element(*except_loc).text)
     time.sleep(2)
     driver.quit()

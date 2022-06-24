@@ -1,9 +1,9 @@
 """
 @author:maohui
-@time:2022/6/10 15:37
+@time:2022/6/24 14:44
   　　　　　　　 ┏┓    ┏┓+ +
   　　　　　　　┏┛┻━━━━┛┻┓ + +
-  　　　　　　　┃        ┃ 　
+  　　　　　　　┃        ┃ 　 
   　　　　　　　┃     ━  ┃ ++ + + +
   　　　　　 　████━████ ┃+
   　　　　　　　┃        ┃ +
@@ -24,20 +24,9 @@
   　　　　　　　   ┗┻┛     ┗┻┛+ + + +
 """
 
-from selenium import webdriver
-from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
+#读取yaml中的数据neir
+import yaml
 
-class PlatFormPage():
-    def __init__(self,driver):
-        self.driver=driver
-        # self.driver=webdriver.Chrome()
-        self.wait=WebDriverWait(self.driver,15)
-
-        self.threet_tech_plat=(By.XPATH,'/html/body/div[4]/div/div/div/a')
-    #点击3t技术
-    def threet_tech_plat_click(self):
-        self.driver.find_element(*(self.threet_tech_plat)).click()
+file=open('./login.yaml','r',encoding="utf-8")
+value=yaml.load(stream=file,Loader=yaml.FullLoader)
+print(value)

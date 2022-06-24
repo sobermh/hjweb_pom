@@ -5,11 +5,12 @@
 
 import unittest
 import HTMLTestRunner
+from HTMLTestRunner_PY3 import HTMLTestRunner
 
 suite=unittest.defaultTestLoader.discover('../case/','*.py')
 
-file=open('../reporter/hjweb_test_result.html', mode='wb')
-runner=HTMLTestRunner.HTMLTestRunner(file,title="官网自动化测试报告",description="IDC",tester="毛辉")
+file=open('../report/hjweb_test_result.html', mode='wb')
+runner=HTMLTestRunner(file,title="官网自动化测试报告",description="IDC毛辉")
 
 runner.run(suite)
 file.close()

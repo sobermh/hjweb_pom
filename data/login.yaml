@@ -1,0 +1,40 @@
+##定义list格式的数据内容
+#- 1
+#- 2
+#- 3
+#- 4
+#
+#字典格式
+#key : value
+#key1 : value1
+#key2:
+#  key2.1 : value2.1
+#  key2.2 : value2.2
+#
+##嵌套类型
+#-
+#  key1 : value1
+#-
+#  key2 :
+#    - key2.1 : value2.1
+#
+#1. Unittest下ddt的@file_data实现读取数据
+#2. yaml自身的函数形态来获取内容
+#-
+#  *common引用
+#- <<追加引用
+-
+  common: &common #不变部分
+    name:
+      admin
+  pwd:          #变动部分
+    1234567
+-
+  common:
+    <<: *common
+  pwd: 123456
+-
+  common:
+    <<: *common
+  pwd: 1234568
+
