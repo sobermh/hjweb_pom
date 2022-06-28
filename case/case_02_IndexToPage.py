@@ -10,9 +10,14 @@ from page.index_page import IndexPage
 import unittest
 
 class IndexToPage(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.driver = webdriver.Chrome()
+        cls.driver.maximize_window()
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.driver.quit()
     def setUp(self) -> None:
-        self.driver=webdriver.Chrome()
-        self.driver.maximize_window()
         self.driver.get("http://well-healthcare.com/")
         self.indexpage=IndexPage(self.driver)
         self.hjintro=AboutPage(self.driver)
@@ -56,5 +61,3 @@ class IndexToPage(unittest.TestCase):
         self.indexpage.click_menu()
         self.indexpage.click_join()
         self.assertEqual(self.driver.current_url, "http://well-healthcare.com/join.html")
-    def tearDown(self) -> None:
-        self.driver.quit()

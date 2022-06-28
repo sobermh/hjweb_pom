@@ -51,6 +51,15 @@ class IndexPage():
 
         self.hj_loc = (By.XPATH, "/html/body/div[5]/div/ul/li[1]/div[2]/div[4]/img")  # 汇健科技视频定位符
         self.company_news_loc = (By.XPATH, "/html/body/div[6]/div/a/span")  # 公司新闻定位符
+        self.news1_pic_loc = (By.XPATH,'/html/body/div[6]/div/ul/li[1]/a/div[1]/s')#第一张公司新闻图
+
+        self.hj_dev_loc=(By.XPATH,'/html/body/div[8]/div/div/div[2]/ul/li[1]/div[2]/a[2]') # 汇健发展
+        self.kit_loc=(By.XPATH,'/html/body/div[8]/div/div/div[2]/ul/li[3]/div[2]/a[3]') # 试剂盒
+        self.join_msg_loc=(By.XPATH,'/html/body/div[8]/div/div/div[2]/ul/li[8]/div[2]/a[3]') # 招聘信息
+
+
+
+
         self.driver = driver
         # self.driver=webdriver.Chrome()#调试
         self.wait = WebDriverWait(self.driver, 20)
