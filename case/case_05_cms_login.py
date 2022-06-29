@@ -30,7 +30,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.action_chains import ActionChains
 from page.cms_login_page import CmsLoginPage
-from page.cms_index_admin_page import CmsIndexAdmin
+from page.cms_index_admin_page import CmsIndexAdminPage
 from page.index_page import IndexPage
 from selenium import webdriver
 
@@ -49,7 +49,7 @@ class CmsLogin(unittest.TestCase):
 
         # 实例化登录页面类，并正确登录
         cls.cmsLoginPage=CmsLoginPage(cls.driver)
-        cls.cmsIndexAdminpage=CmsIndexAdmin(cls.driver)
+        cls.cmsIndexAdminpage=CmsIndexAdminPage(cls.driver)
         cls.indexpage = IndexPage(cls.driver)
         cls.cmsLoginPage.name_input("admin")
         cls.cmsLoginPage.pwd_input("123456")
