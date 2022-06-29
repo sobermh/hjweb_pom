@@ -25,6 +25,7 @@ class IndexToPage(unittest.TestCase):
         """首页跳转至关于汇健"""
         self.indexpage.click_menu()
         self.indexpage.click_about()
+        self.driver.get_screenshot()
         self.assertEqual(self.driver.current_url,"http://well-healthcare.com/about.html")
     def test003(self):
         """首页跳转至技术平台"""

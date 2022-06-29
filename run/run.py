@@ -4,13 +4,15 @@
 """
 
 import unittest
-import HTMLTestRunner
-from HTMLTestRunner_PY3 import HTMLTestRunner
+import HTMLTestRunner1
+from HwTestReport import HTMLTestReport
 
 suite=unittest.defaultTestLoader.discover('../case/','*.py')
+# suite=unittest.defaultTestLoader.discover('../case/','case_01_search.py')
 
 file=open('../report/hjweb_test_result.html', mode='wb')
-runner=HTMLTestRunner(file,title="官网自动化测试报告",description="IDC毛辉")
+runner=HTMLTestReport(file,title="自动化测试报告",description="官网自动化测试报告",tester='IDC毛辉')
+# runner=HTMLTestRunner1.HTMLTestRunner(file,title="自动化测试报告",description="官网自动化测试报告")
 
 runner.run(suite)
 file.close()
