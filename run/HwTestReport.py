@@ -652,7 +652,7 @@ a.popup_link:hover {
 <div id='ending'>
     <p align="center">
     Copyright &copy 2016
-    <a href="http://blog.csdn.net/z_johnny" target="_blank"> HONGWEI </a>
+    <a href="http://well-healthcare.com/" target="_blank"> MAOHUI </a>
     Inc. All rights reserved.
     </p>
 </div>

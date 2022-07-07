@@ -50,6 +50,7 @@ class CaseIndex(unittest.TestCase):
         self.driver.execute_script("arguments[0].click();",hj_loc)
         time.sleep(3)
         self.driver.get_screenshot_as_file(f"../log/视频播放截图{time.strftime('%Y-%m-%d-%H', time.localtime())}.png")
+        self.driver.switch_to_frame("1")
     def test26(self):
         """首页跳转公司新闻"""
         company_news_loc=self.wait.until(expected_conditions.presence_of_element_located(self.indexpage.company_news_loc))
