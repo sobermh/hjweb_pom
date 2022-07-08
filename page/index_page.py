@@ -94,9 +94,11 @@ class IndexPage():
     # 点击menu
     def click_menu(self):
         try:
-            time.sleep(2)
-            self.wait.until(expected_conditions.presence_of_element_located(self.menu_loc))
-            self.driver.find_element(*self.menu_loc).click()
+            # time.sleep(2)
+            menu_loc=self.wait.until(expected_conditions.presence_of_element_located(self.menu_loc))
+            # self.driver.find_element(*self.menu_loc).click()
+            self.driver.execute_script("arguments[0].click();", menu_loc)
+
         except Exception as e:
             self.driver.get_screenshot_as_file('../log/打开menu错误.png')
             raise e
